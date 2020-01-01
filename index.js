@@ -48,7 +48,7 @@ function createVideoControlButtons(videoTag) {
     
     myPersonalVideoControls.style.position = "fixed"
     myPersonalVideoControls.style.top = "70px"
-    myPersonalVideoControls.style.left = "10px"
+    myPersonalVideoControls.style.left = "80px"
     
     let cssTemplate = `
         padding: 10px;
