@@ -1,5 +1,3 @@
-console.log('It works!')
-
 if (document.querySelector('video')) {
     addVideoControls()
 } else {
@@ -48,7 +46,7 @@ function createVideoControlButtons(videoTag) {
     
     myPersonalVideoControls.style.position = "fixed"
     myPersonalVideoControls.style.top = "70px"
-    myPersonalVideoControls.style.left = "80px"
+    myPersonalVideoControls.style.left = "100px"
     
     let cssTemplate = `
         padding: 10px;
