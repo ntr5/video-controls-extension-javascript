@@ -10,10 +10,10 @@ function addVideoControls() {
         // console.log(event.key);
         if (event.key === 'd') {
             // console.log('speed up')
-            videoTag.playbackRate += .10
+            videoTag.playbackRate += .05
         } else if (event.key === 's') {
             // console.log('slow down')
-            videoTag.playbackRate -= .10
+            videoTag.playbackRate -= .05
         } else if (event.key === 'r') {
             // console.log('normal speed')
             videoTag.playbackRate = 1
@@ -40,7 +40,7 @@ function createVideoControlButtons(videoTag) {
     myPersonalVideoControls.appendChild(speedDownButton)
 
     let speedLabel = document.createElement('lable')
-    let speedLabelTextNode = document.createTextNode('1')
+    let speedLabelTextNode = document.createTextNode('1.00')
     speedLabel.appendChild(speedLabelTextNode)
     speedLabel.classList.add('my-speed-label')
     speedLabel.id = 'speed'
@@ -57,20 +57,11 @@ function createVideoControlButtons(videoTag) {
     vjsControlBar.appendChild(myPersonalVideoControls)
     vjsControlBar.insertBefore(myPersonalVideoControls, vjsControlBar.childNodes[1])
   
-    
-    let cssTemplate = `
-        padding: 10px;
-        margin: 10px;
-        color: white;
-        background-color: #45B0E5;
-        border-radius: 4px;
-        font-weight: 900;
-        cursor: pointer;
-    `
-    let cssButtonBarTemplate = `
+
+    let cssButtonTemplate = `
         position: relative;
-        // margin: 0;
-        // padding: 0;
+        margin: 0;
+        padding: 0;
         height: 100%;
         width: 4em;
         // -webkit-box-flex: 0;
@@ -83,28 +74,37 @@ function createVideoControlButtons(videoTag) {
     let cssLabelTemplate = `
         color: white;
         border: 1px solid white;
-        padding: 2px 10px;
+        padding: 4px 6px;
+        cursor: pointer;
+        font-weight: 600;
     `
 
     // function addMyClassToAClass() {
     //     let 
     // }
+    
+    let label = document.querySelector('.my-speed-label');
+    label.style = cssLabelTemplate;
+    label.addEventListener('click', event => {
+        videoTag.playbackRate = 1.00
+        label.innerHTML = videoTag.playbackRate.toFixed(2)
+    })
 
     let buttons = document.querySelectorAll('.my-speed-control')
     buttons.forEach(button => {
         // button.style = cssTemplate
-        button.style = cssButtonBarTemplate;
+        button.style = cssButtonTemplate;
         button.addEventListener('click', event => {
             if (event.target.id == 'speed-up') {
             // console.log('speed up')
-            videoTag.playbackRate += .10
+            videoTag.playbackRate += .05
+            label.innerHTML = videoTag.playbackRate.toFixed(2)
             } else if (event.target.id == 'speed-down') {
             // console.log('slow down')
-            videoTag.playbackRate -= .10
+            videoTag.playbackRate -= .05
+            label.innerHTML = videoTag.playbackRate.toFixed(2)
             }
-        } )
+        })
     })
 
-    let label = document.querySelector('.my-speed-label');
-    label.style = cssLabelTemplate;
 }
