@@ -72,37 +72,44 @@ function createVideoControlButtons(videoTag) {
     `
 
     let cssLabelTemplate = `
-        color: white;
-        border: 1px solid white;
+        color: #29303b;
+        // border: 1px solid white;
         padding: 4px 6px;
         cursor: pointer;
         font-weight: 600;
+        background-color: #f7f8fa;
+        border-radius: 4px;
+        font-size: 11px;
+        text-align: center;
     `
-
-    // function addMyClassToAClass() {
-    //     let 
-    // }
     
-    let label = document.querySelector('.my-speed-label');
-    label.style = cssLabelTemplate;
-    label.addEventListener('click', event => {
-        videoTag.playbackRate = 1.00
-        label.innerHTML = videoTag.playbackRate.toFixed(2)
+    let mylabel = document.querySelector('.my-speed-label');
+    mylabel.style = cssLabelTemplate;
+    mylabel.addEventListener('click', event => {
+        videoTag.playbackRate = 1.00;
+        mylabel.innerHTML = videoTag.playbackRate.toFixed(2);
     })
+
+    // mylabel.addEventListener('mouseenter', event => {
+    //     mylabel.style.color = '#ff4d4d';
+    // })
+
+    // mylabel.addEventListener('onmouseleave', event => {
+    //     mylabel.style.color = 'green';
+    // })
 
     let buttons = document.querySelectorAll('.my-speed-control')
     buttons.forEach(button => {
-        // button.style = cssTemplate
         button.style = cssButtonTemplate;
         button.addEventListener('click', event => {
             if (event.target.id == 'speed-up') {
             // console.log('speed up')
             videoTag.playbackRate += .05
-            label.innerHTML = videoTag.playbackRate.toFixed(2)
+            mylabel.innerHTML = videoTag.playbackRate.toFixed(2) + ' x'
             } else if (event.target.id == 'speed-down') {
             // console.log('slow down')
             videoTag.playbackRate -= .05
-            label.innerHTML = videoTag.playbackRate.toFixed(2)
+            mylabel.innerHTML = videoTag.playbackRate.toFixed(2) + ' x'
             }
         })
     })
