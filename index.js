@@ -9,18 +9,18 @@ function addVideoControls() {
     document.addEventListener('keydown', (event) => {
         // console.log(event.key);
         if (event.key === 'd') {
-            // console.log('speed up')
-            videoTag.playbackRate += .05
+            videoTag.playbackRate += .05;
+            mylabel.innerHTML = videoTag.playbackRate.toFixed(2) + ' x';
         } else if (event.key === 's') {
-            // console.log('slow down')
-            videoTag.playbackRate -= .05
+            videoTag.playbackRate -= .05;
+            mylabel.innerHTML = videoTag.playbackRate.toFixed(2) + ' x';
         } else if (event.key === 'r') {
-            // console.log('normal speed')
-            videoTag.playbackRate = 1
+            videoTag.playbackRate = 1;
+            mylabel.innerHTML = videoTag.playbackRate.toFixed(2);
         } else if (event.key === 'a') {
-            videoTag.play()
+            videoTag.play();
         } else if (event.key === 'f') {
-            videoTag.pause()
+            videoTag.pause();
         } 
     })
     createVideoControlButtons(videoTag)
