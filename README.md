@@ -1,1 +1,1 @@
-# chrome-extension
+# video-controls-extension
