@@ -48,7 +48,7 @@ function setCss() {
         color: white;
         font-weight: 900;
         cursor: pointer;
-        font-size: 14px;
+        font-size: 12px;
     `
 
     let labelCss = `
@@ -63,7 +63,7 @@ function setCss() {
     `
     let newStyleLabelCss = `
         color: rgb(41, 48, 59);
-        padding: 4px 6px;
+        padding: 3px 6px;
         cursor: pointer;
         font-weight: 600;
         background-color: rgb(247, 248, 250);
@@ -71,7 +71,7 @@ function setCss() {
         font-size: 0.95rem;
         text-align: center;
         position: relative;
-        top: -2px;
+        top: -1px;
     `
     return([buttonCss, skipButtonsCss, labelCss, newStyleLabelCss])
 }
